@@ -143,29 +143,85 @@
   border-radius: 50%;
   background: #E2004B;
 }
-.hero-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 36px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #FF0055 0%, #E6004C 100%);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  animation: ctaGlow 2.2s ease-in-out infinite;
-  transition: transform 0.18s ease, filter 0.18s ease;
-}
+
+    param($m)
+    $m.Value -replace 'white-space:[^;]+;', '' -replace 'padding:[^;]+;', 'padding:12px 28px;'
+  
+.hero-cta-btn{ word-break:break-word; white-space:normal; }
 .hero-cta-btn:hover {
   transform: scale(1.045);
   filter: brightness(1.08);
 }
-</style></head>
+</style><style id="mobile-responsive-fixes">
+/* ── HERO CARDS: 4-col → 2-col → 1-col ────────────── */
+@media (max-width:860px){
+  .hero-cards-grid{ grid-template-columns:repeat(2,1fr) !important; }
+}
+@media (max-width:520px){
+  .hero-cards-grid{ grid-template-columns:1fr !important; }
+}
+
+/* ── HERO HEADLINE: allow wrap on mobile ────────────── */
+@media (max-width:640px){
+  h1[style*="clamp"],h1.hero-headline{
+    white-space:normal !important;
+    font-size:clamp(1.65rem,7vw,2.2rem) !important;
+  }
+}
+
+/* ── HERO SECTION HEIGHT ────────────────────────────── */
+@media (max-width:520px){
+  section.relative.overflow-hidden[style*="min-height"]{
+    min-height:auto !important;
+    padding-top:48px !important;
+    padding-bottom:48px !important;
+  }
+}
+
+/* ── FORM: single column + button full width ─────────── */
+@media (max-width:600px){
+  .kf{ grid-template-columns:1fr !important; }
+  .kf-full{ grid-column:1 !important; }
+  .kf-submit input[type=submit]{
+    width:100% !important;
+    padding:14px 16px !important;
+    font-size:11.5px !important;
+    white-space:normal !important;
+    letter-spacing:0.04em !important;
+  }
+  .kf-submit input[type=reset]{
+    display:block !important;
+    margin:10px auto 0 !important;
+    width:100% !important;
+  }
+}
+
+/* ── HERO CTA BUTTON ────────────────────────────────── */
+@media (max-width:480px){
+  .hero-cta-btn{
+    width:100% !important;
+    justify-content:center !important;
+    padding:13px 20px !important;
+    font-size:12px !important;
+  }
+}
+
+/* ── PRICING CARDS STACK ON MOBILE ─────────────────── */
+@media (max-width:640px){
+  [class*="md:grid-cols-3"]{
+    grid-template-columns:1fr !important;
+  }
+  [class*="md:-translate-y-2"]{
+    transform:none !important;
+  }
+}
+
+/* ── FAQ / AUDIT SECTION PADDING ───────────────────── */
+@media (max-width:520px){
+  .max-w-7xl{ padding-left:16px !important; padding-right:16px !important; }
+}
+</style>
+</head>
 <body class="bg-[#FAFAFA] text-[#0F172A] font-sans antialiased selection:bg-[#E2004B] selection:text-white">
 <!-- Build: 20261022-1636 -->
 <!-- Google Tag Manager (noscript) -->
@@ -261,7 +317,7 @@
     </div>
 
     <!-- HEADLINE -->
-    <h1 style="font-size:clamp(1.55rem,4.2vw,3.15rem);font-weight:800;line-height:1.06;letter-spacing:-0.02em;color:#0F172A;margin-bottom:10px;white-space:nowrap;">
+    <h1 style="font-size:clamp(1.55rem,4.2vw,3.15rem);font-weight:800;line-height:1.06;letter-spacing:-0.02em;color:#0F172A;margin-bottom:10px;">
       Last &amp; Final <span style="color:#E2004B;">Bumper Offer.</span>
     </h1>
 
@@ -271,7 +327,7 @@
     </p>
 
     <!-- 4 CARDS GRID -->
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:900px;align-items:stretch;margin-bottom:24px;">
+    <div class="hero-cards-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:900px;align-items:stretch;margin-bottom:24px;">
 
       <!-- CARD 1: EARLY BIRD OFFERS -->
       <div style="background:#FFF1F5;border-radius:12px;padding:14px 13px;box-shadow:0 2px 10px rgba(226,0,75,0.10);border:1px solid rgba(226,0,75,0.18);display:flex;flex-direction:column;gap:9px;">
@@ -443,7 +499,7 @@
               .kf-submit { margin-top:24px; text-align:center; }
               .kf-submit input[type=submit] {
                 display:inline-flex; align-items:center; justify-content:center;
-                padding:13px 48px; border-radius:999px; border:none; cursor:pointer;
+                padding:13px 32px; border-radius:999px; max-width:100%; border:none; cursor:pointer;
                 background:linear-gradient(90deg,#FF0055,#E6004C);
                 color:#fff; font-size:13px; font-weight:800; letter-spacing:0.07em;
                 text-transform:uppercase; font-family:inherit;
