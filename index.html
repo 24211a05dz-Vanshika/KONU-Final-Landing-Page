@@ -509,61 +509,93 @@ a.hero-cta-btn:hover,
       <p class="mt-3 text-sm text-slate-400 leading-relaxed max-w-xl mx-auto">Fill in your details and a KONU relationship manager will reach out to confirm your boundary and get you set up.</p>
     </div>
 
-    <!-- ZOHO FORM WRAPPER -->
+    <!-- FORM CARD -->
     <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
-
-      <!-- KONU brand top bar -->
       <div style="height:4px;background:linear-gradient(90deg,#FF0055,#E2004B);"></div>
+      <div class="p-6 sm:p-10">
 
-      <div style="padding:32px 40px 36px;">
-
+        <!-- ZOHO FORM — all hidden fields and required scripts preserved exactly -->
         <div id="crmWebToEntityForm" class="zcwf_lblLeft crmWebToEntityForm" style="background:transparent;color:#0F172A;max-width:100%;">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <META HTTP-EQUIV="content-type" CONTENT="text/html;charset=UTF-8">
-
           <form id="webform1320106000002194001" action="https://crm.zoho.in/crm/WebToLeadForm" name="WebToLeads1320106000002194001" method="POST" onSubmit='javascript:document.charset="UTF-8"; return checkMandatory1320106000002194001()' accept-charset="UTF-8">
 
+            <!-- Do not remove these hidden fields -->
             <input type="text" style="display:none;" name="xnQsjsdp" value="b68dbe7ba6579e93a5c8690d90b8cdf6e456e368cd6fddc13a73ae351fbbca6b">
             <input type="hidden" name="zc_gad" id="zc_gad" value="">
             <input type="text" style="display:none;" name="xmIwtLD" value="db2772d45d45f3cdc0e313b6d690835153ea2185081344ae6717a4418e24eda6b2bc13e2b7e455e94e832f4b9490e717">
             <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
             <input type="text" style="display:none;" name="returnURL" value="https://konu-final-landing-page.vercel.app/thankyou.html">
 
+            <!-- KONU branded form styles -->
             <style>
-              .kf { display:grid; grid-template-columns:1fr 1fr; gap:18px 24px; }
-              .kf-full { grid-column: 1 / -1; }
-              .kf label { display:block; font-size:11px; font-weight:700; color:#555D6B; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:6px; }
-              .kf label span.req { color:#E2004B; margin-left:2px; }
-              .kf input[type=text], .kf select, .kf textarea {
+              .konu-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px 24px; }
+              .konu-form-full { grid-column:1 / -1; }
+              .konu-form-grid label {
+                display:block; font-size:11px; font-weight:700;
+                color:#555D6B; text-transform:uppercase;
+                letter-spacing:0.07em; margin-bottom:6px;
+              }
+              .konu-form-grid label .req { color:#E2004B; margin-left:2px; }
+              .konu-form-grid input[type=text],
+              .konu-form-grid select,
+              .konu-form-grid textarea {
                 width:100%; border:1.5px solid #e2e8f0; border-radius:10px;
                 padding:10px 14px; font-size:13px; color:#0F172A;
                 background:#FAFAFA; outline:none; font-family:inherit;
-                transition:border-color 0.2s, box-shadow 0.2s;
+                transition:border-color 0.2s,box-shadow 0.2s;
+                box-sizing:border-box;
               }
-              .kf input[type=text]:focus, .kf select:focus, .kf textarea:focus {
-                border-color:#E2004B; box-shadow:0 0 0 3px rgba(226,0,75,0.10); background:#fff;
+              .konu-form-grid input[type=text]:focus,
+              .konu-form-grid select:focus,
+              .konu-form-grid textarea:focus {
+                border-color:#E2004B;
+                box-shadow:0 0 0 3px rgba(226,0,75,0.10);
+                background:#fff;
               }
-              .kf select { appearance:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 14px center; padding-right:36px; }
-              .kf select[multiple] { background-image:none; height:110px; padding:8px 10px; }
-              .kf textarea { resize:vertical; min-height:80px; }
-              .kf-submit { margin-top:24px; text-align:center; }
-              .kf-submit input[type=submit] {
+              .konu-form-grid select {
+                appearance:none;
+                background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+                background-repeat:no-repeat;
+                background-position:right 14px center;
+                padding-right:36px;
+              }
+              .konu-form-grid select[multiple] {
+                background-image:none; height:120px; padding:8px 10px;
+              }
+              .konu-form-grid textarea { resize:vertical; min-height:80px; }
+              .konu-form-submit { margin-top:28px; text-align:center; }
+              .konu-form-submit input[type=submit] {
                 display:inline-flex; align-items:center; justify-content:center;
-                padding:13px 32px; border-radius:999px; max-width:100%; border:none; cursor:pointer;
+                padding:14px 48px; border-radius:999px; border:none; cursor:pointer;
                 background:linear-gradient(90deg,#FF0055,#E6004C);
-                color:#fff; font-size:13px; font-weight:800; letter-spacing:0.07em;
-                text-transform:uppercase; font-family:inherit;
+                color:#fff; font-size:13px; font-weight:800;
+                letter-spacing:0.06em; text-transform:uppercase;
+                font-family:inherit;
                 box-shadow:0 4px 20px rgba(226,0,75,0.30);
-                transition:transform 0.18s, box-shadow 0.18s;
+                transition:transform 0.18s,box-shadow 0.18s;
+                width:100%; max-width:360px;
               }
-              .kf-submit input[type=submit]:hover { transform:scale(1.04); box-shadow:0 6px 28px rgba(226,0,75,0.45); }
-              .kf-submit input[type=reset] { margin-left:12px; background:transparent; border:1.5px solid #e2e8f0; border-radius:999px; padding:12px 28px; font-size:12px; font-weight:600; color:#888; cursor:pointer; font-family:inherit; transition:border-color 0.2s; }
-              .kf-submit input[type=reset]:hover { border-color:#E2004B; color:#E2004B; }
-              .kf-note { font-size:11px; color:#94a3b8; text-align:center; margin-top:14px; }
-              @media(max-width:600px){ .kf { grid-template-columns:1fr; } .kf-full { grid-column:1; } }
+              .konu-form-submit input[type=submit]:hover {
+                transform:scale(1.04);
+                box-shadow:0 6px 28px rgba(226,0,75,0.45);
+              }
+              .konu-form-submit input[type=reset] {
+                margin-top:10px; display:block; margin-left:auto; margin-right:auto;
+                background:transparent; border:1.5px solid #e2e8f0;
+                border-radius:999px; padding:10px 28px;
+                font-size:12px; font-weight:600; color:#888;
+                cursor:pointer; font-family:inherit;
+                transition:border-color 0.2s;
+              }
+              .konu-form-submit input[type=reset]:hover { border-color:#E2004B; color:#E2004B; }
+              .konu-form-note { font-size:11px; color:#94a3b8; text-align:center; margin-top:12px; }
+              @media(max-width:600px){
+                .konu-form-grid { grid-template-columns:1fr !important; }
+                .konu-form-full { grid-column:1 !important; }
+                .konu-form-submit input[type=submit] { max-width:100%; padding:14px 20px; }
+              }
             </style>
 
-            <div class="kf">
+            <div class="konu-form-grid">
 
               <!-- First Name -->
               <div>
@@ -590,15 +622,15 @@ a.hero-cta-btn:hover,
               </div>
 
               <!-- Property Location -->
-              <div class="kf-full">
-                <label for="LEADCF124">Property Location (Area / City)</label>
+              <div class="konu-form-full">
+                <label for="LEADCF124">KONU Property Location</label>
                 <input type="text" id="LEADCF124" name="LEADCF124" maxlength="255" placeholder="e.g. Shamshabad, Hyderabad">
               </div>
 
               <!-- Property Size -->
               <div>
                 <label for="LEADCF125">Property Size</label>
-                <select id="LEADCF125" name="LEADCF125">
+                <select id="LEADCF125" name="LEADCF125" onChange="addAriaSelected1320106000002194001()">
                   <option value="-None-">Select size</option>
                   <option value="Under 500 Sq.Yds.">Under 500 Sq. Yds.</option>
                   <option value="500-1,000 Sq. Yds.">500 – 1,000 Sq. Yds.</option>
@@ -611,7 +643,7 @@ a.hero-cta-btn:hover,
               <!-- How did you hear -->
               <div>
                 <label for="LEADCF126">How did you hear about KONU?</label>
-                <select id="LEADCF126" name="LEADCF126">
+                <select id="LEADCF126" name="LEADCF126" onChange="addAriaSelected1320106000002194001()">
                   <option value="-None-">Select source</option>
                   <option value="Facebook/Instagram Ad">Facebook / Instagram Ad</option>
                   <option value="Google Ad">Google Ad</option>
@@ -622,8 +654,8 @@ a.hero-cta-btn:hover,
                 </select>
               </div>
 
-              <!-- Interested in -->
-              <div class="kf-full">
+              <!-- I'm interested in -->
+              <div class="konu-form-full">
                 <label for="LEADCF123">I'm interested in… <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#94a3b8;font-size:10px;">(hold Ctrl / Cmd to select multiple)</span></label>
                 <select id="LEADCF123" name="LEADCF123" multiple onChange="addAriaSelected1320106000002194001()">
                   <option value="Regular Property Monitoring">Regular Property Monitoring</option>
@@ -635,20 +667,21 @@ a.hero-cta-btn:hover,
                 </select>
               </div>
 
-              <!-- Notes -->
-              <div class="kf-full">
+              <!-- Anything else -->
+              <div class="konu-form-full">
                 <label for="LEADCF122">Anything else you'd like us to know?</label>
                 <textarea id="LEADCF122" name="LEADCF122" placeholder="Any specific concerns, questions, or details about your property…"></textarea>
               </div>
 
             </div>
 
+            <!-- Do not remove honeypot -->
             <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
 
-            <div class="kf-submit">
-              <input type="submit" value="Request a Callback — It's Free" aria-label="Submit">
-              <input type="reset" value="Clear" aria-label="Reset">
-              <p class="kf-note">No payment. No obligation. Your details are kept strictly private.</p>
+            <div class="konu-form-submit">
+              <input type="submit" id="formsubmit" class="formsubmit" value="Request a Callback — It's Free" aria-label="Submit">
+              <input type="reset" value="Clear Form" aria-label="Reset">
+              <p class="konu-form-note">No payment. No obligation. Your details are kept strictly private.</p>
             </div>
 
           </form>
@@ -656,52 +689,59 @@ a.hero-cta-btn:hover,
 
       </div>
     </div>
-
   </div>
 </section>
 
+<!-- Do not remove — Zoho form scripts -->
 <script>
   function addAriaSelected1320106000002194001(){
-    var optionElem = event.target;
-    var previousSelectedOption = optionElem.querySelector('[aria-selected=true]');
-    if(previousSelectedOption){ previousSelectedOption.removeAttribute('aria-selected'); }
-    optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected = 'true';
+    var optionElem=event.target;
+    var prev=optionElem.querySelector('[aria-selected=true]');
+    if(prev){prev.removeAttribute('aria-selected');}
+    optionElem.querySelectorAll('option')[optionElem.selectedIndex].ariaSelected='true';
   }
   function validateEmail1320106000002194001(){
-    var form = document.forms['WebToLeads1320106000002194001'];
-    var emailFld = form.querySelectorAll('[ftype=email]');
+    var form=document.forms['WebToLeads1320106000002194001'];
+    var emailFld=form.querySelectorAll('[ftype=email]');
     for(var i=0;i<emailFld.length;i++){
-      var emailVal = emailFld[i].value;
-      if((emailVal.replace(/^\s+|\s+$/g,'')).length!=0){
-        var atpos=emailVal.indexOf('@'); var dotpos=emailVal.lastIndexOf('.');
-        if(atpos<1||dotpos<atpos+2||dotpos+2>=emailVal.length){
+      var v=emailFld[i].value;
+      if((v.replace(/^\s+|\s+$/g,'')).length!=0){
+        var a=v.indexOf('@'),d=v.lastIndexOf('.');
+        if(a<1||d<a+2||d+2>=v.length){
           alert('Please enter a valid email address.');
-          emailFld[i].focus(); return false;
+          emailFld[i].focus();return false;
         }
       }
     }
     return true;
   }
   function checkMandatory1320106000002194001(){
-    var mndFileds=['Last Name']; var fldLangVal=['Last Name'];
-    for(var i=0;i<mndFileds.length;i++){
-      var fieldObj=document.forms['WebToLeads1320106000002194001'][mndFileds[i]];
-      if(fieldObj){
-        if(((fieldObj.value).replace(/^\s+|\s+$/g,'')).length==0){
-          alert(fldLangVal[i]+' cannot be empty.'); fieldObj.focus(); return false;
+    var mnd=['Last Name'],lbl=['Last Name'];
+    for(var i=0;i<mnd.length;i++){
+      var f=document.forms['WebToLeads1320106000002194001'][mnd[i]];
+      if(f){
+        if(((f.value).replace(/^\s+|\s+$/g,'')).length==0){
+          alert(lbl[i]+' cannot be empty.');f.focus();return false;
         }
       }
     }
     if(!validateEmail1320106000002194001()){return false;}
-    document.querySelector('.crmWebToEntityForm .kf-submit input[type=submit]').setAttribute('disabled',true);
+    document.querySelector('.crmWebToEntityForm .formsubmit').setAttribute('disabled',true);
     return true;
   }
   if(typeof _wfa_fstprtcken=='undefined'){_wfa_fstprtcken={};}
   _wfa_fstprtcken[1320106000002194001]=true;
+  function tooltipShow1320106000002194001(el){
+    var t=el.nextElementSibling,d=t.style.display;
+    if(d=='none'){
+      document.getElementsByClassName('zcwf_tooltip_over').forEach(function(x){x.style.display='none';});
+      t.style.display='block';
+    }else{t.style.display='none';}
+  }
 </script>
-<!-- Do not remove this — Analytics Tracking code -->
+<!-- Do not remove this --- Analytics Tracking code starts -->
 <script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=dc3cea5d85b139996920b0e398cb5bad92d0314e2e99e217737e520edaea97d776fb6e8625f6dbf6d2d6e61b84401021gid6bbee52f709f1030eae260294872c306d61a82afd251242201c2ea7d5a26001bgid8545119a4a9dd4092a1d294d8c9e634b3b3abc1a875a2d4d8512cc5469b1ee5dgidf06b109ed74777ed57568cd987d4d65dfd99c2b7946a0a9b6a6f707cd476103d&tw=4942102001a0acc89eb0812c0aca4b657d538d301400cdbeb85e46ac9121b844&version=v2"></script>
-</section>
+<!-- Do not remove this --- Analytics Tracking code ends. -->
 
 <!-- 11. REFINED EDITORIAL FOOTER -->
 <footer class="bg-white border-t border-slate-200/80 py-12" data-purpose="site-footer">
