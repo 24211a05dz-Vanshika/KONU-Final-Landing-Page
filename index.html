@@ -905,25 +905,7 @@ a.hero-cta-btn:hover,
    * based on which pricing card was clicked.
    */
   function scrollToEnroll(buttonEl) {
-    const card = buttonEl.closest('[data-purpose="pricing-card"]');
-    if (card) {
-      const label = buttonEl.getAttribute('data-gtm-label') || '';
-      const sizeMap = {
-        plan_under_1000sqyd:    'under_1000sqyd',
-        plan_1000sqyd_to_1acre: '1000sqyd_to_1acre',
-        plan_above_1acre:       'above_1acre',
-      };
-      const sizeSelect = document.getElementById('ef_property_size');
-      if (sizeSelect && sizeMap[label]) {
-        sizeSelect.value = sizeMap[label];
-      }
-      // Also pre-fill plan duration from current toggle state
-      const isOneYear = document.getElementById('toggleOneYear').classList.contains('bg-[#0F172A]');
-      const durationSelect = document.getElementById('ef_plan_duration');
-      if (durationSelect) {
-        durationSelect.value = isOneYear ? '1_year' : '6_month';
-      }
-    }
+    // Scroll to the Zoho form section
     const target = document.getElementById('enroll');
     if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
