@@ -221,6 +221,56 @@
   .max-w-7xl{ padding-left:16px !important; padding-right:16px !important; }
 }
 </style>
+<style id="hero-cta-btn-fix">
+/* ── RESTORE hero-cta-btn base styles (overrides any broken partial definitions) */
+a.hero-cta-btn,
+.hero-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 14px 36px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, #FF0055 0%, #E6004C 100%) !important;
+  color: #fff !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  animation: ctaGlow 2.2s ease-in-out infinite !important;
+  transition: transform 0.18s ease, filter 0.18s ease !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+a.hero-cta-btn:hover,
+.hero-cta-btn:hover {
+  transform: scale(1.045) !important;
+  filter: brightness(1.08) !important;
+}
+
+/* ── MOBILE: full-width centred pill, extra prominent ── */
+@media (max-width: 640px) {
+  a.hero-cta-btn,
+  .hero-cta-btn {
+    width: 100% !important;
+    max-width: 340px !important;
+    justify-content: center !important;
+    padding: 16px 24px !important;
+    font-size: 13px !important;
+    box-shadow: 0 0 0 4px rgba(226,0,75,0.18),
+                0 8px 28px rgba(226,0,75,0.45) !important;
+    display: flex !important;
+    margin: 0 auto !important;
+  }
+  /* Centre the CTA wrapper div */
+  div[style*="max-width:900px"][style*="text-align:center"] {
+    display: flex !important;
+    justify-content: center !important;
+  }
+}
+</style>
 </head>
 <body class="bg-[#FAFAFA] text-[#0F172A] font-sans antialiased selection:bg-[#E2004B] selection:text-white">
 <!-- Build: 20261022-1636 -->
